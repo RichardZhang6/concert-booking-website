@@ -141,7 +141,8 @@ public class ConcertResource {
                         c.getImageName());
                 dtoCS.add(dtoConcertSum);
             }
-            Response.ResponseBuilder builder = Response.ok().entity(dtoCS);
+            GenericEntity<List<ConcertSummaryDTO>> out = new GenericEntity<>(dtoCS){};
+            Response.ResponseBuilder builder = Response.ok(out);
 
             return builder.build();
 
